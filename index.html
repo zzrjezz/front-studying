@@ -11,7 +11,7 @@
     <div id="app">
 
         <h1 v-show:hShow>h1 in app</h1>
-        <button v-on:click='alert("hello")'>click</button>
+        <button v-on:click='showMsg'>click</button>
         <button v-on:click="hShow=!hShow">Add 1</button>
     </div>
 <script>
@@ -22,6 +22,11 @@
                 name:"tom",
                 age:18,
                 hShow:true
+            }
+        },
+        methods: {
+            showMsg:function(){
+                alert("hello")
             }
         },
     })
