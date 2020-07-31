@@ -1,9 +1,32 @@
 <!DOCTYPE html>
 <head>
     <meta charset="utf-8">
+    <script src="https://cdn.bootcdn.net/ajax/libs/vue/2.6.11/vue.js"></script>
 </head>
 <body>
 
     <h1>git demo</h1>
     <a href="./library/1.html">1.html</a>
+    <a href="./test/vueDemo.html">vueDemo.html</a>
+    <div id="app">
+
+        <h1 v-show:hShow>h1 in app</h1>
+        <button v-on:click='alert("hello")'>click</button>
+        <button v-on:click="hShow=!hShow">Add 1</button>
+    </div>
+<script>
+    let vm = new Vue({
+        el:'#app',
+        data() {
+            return {
+                name:"tom",
+                age:18,
+                hShow:true
+            }
+        },
+    })
+</script>
 </body>
+
+
+
