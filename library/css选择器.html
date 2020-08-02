@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+/*复合选择器（交集选择器）
+			 * 	- 作用：
+			 * 		- 可以选中同时满足多个选择器的元素
+			 *  - 语法：
+			 * 		- 选择器1选择器2选择器N{}
+			 */
+span.p3{
+    background-color: yellow;
+}
+
+
+/*
+ * 选择器分组(并集选择器)
+ * 	- 通过选择器分组可以同时选中多个选择器对应的元素
+ * 	- 语法：选择器1,选择器2,选择器N{}
+ */
+#p1 , .p2 , h1{
+    background-color: yellow;
+}
+
+
+/*
+ * 为div中的span设置一个颜色为绿色
+ * 后代元素选择器
+ * 	- 作用：
+ * 		- 选中指定元素的指定后代元素
+ * 	- 语法：
+ * 		祖先元素 后代元素{}
+ */
+#d1 span{
+    color: greenyellow;
+}
+
+</style>
+<body>
+
+</body>
+
+</html>

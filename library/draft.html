@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+    //输出对象功能
+
+    // let a=new Array([1,2,3]);
+    // console.log(a);
+    // console.log(`this:${Object}`)
+    // console.log(Object.defineProperty)
+
+
+    //测试Object.defineProperty
+    {
+        let temp = "tom"
+        const object1 = {};
+
+        // object1.name="tom"; //---
+
+        Object.defineProperty(object1, 'property1', {
+            value: 42,
+            writable: false   //设置可写/只读
+        });
+
+        Object.defineProperty(object1, 'name', {
+            get: function () {
+                return temp
+            },
+            set: function (val) { //value改变，触发set方法
+                temp = val;
+                console.log("temp change");
+            }
+        })
+
+        // Object.defineProperty(object1, 'name',18); //---
+
+        object1.property1 = 77;
+
+        object1.property1 = 77;
+        object1.name = "mmy";
+
+        // throws an error in strict mode
+
+        console.log(object1.property1);
+
+        console.log(object1.name)
+    }
+
+
+
+</script>
+</body>
+</html>

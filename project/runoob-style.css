@@ -1,0 +1,62 @@
+
+*{
+  font-size: 15px;
+  background-color: #E6E6E6;
+}
+.head{
+  border: 1px solid black;
+  height: 2em;
+
+}
+.head .logo{
+  padding: 0.25em 0.25em;
+  /*border: 1px solid black;*/  /*加边框看清布局*/
+width: 25%;
+  float: left;
+  margin-left: 15em;
+
+}
+.head .logo a{
+  color: #000;
+  text-decoration: none;    /*去除链接的下划线*/
+}
+.head .find{
+  padding: 0.25em 0.25em;
+  /*border: 1px solid black;*/  /*加边框看清布局*/
+  width: 25%;
+  float: right;
+  margin-right: 15em;
+}
+
+.head .find input{
+  height: 1em;
+}
+/*a img{*/
+/*  max-width: 100%;*/
+/*}*/
+
+/*导航部分样式*/
+
+
+a:visited{
+  color: black;
+}
+
+div.navigation{
+
+border: black 1px solid;
+  background-color: #4CAF50;
+}
+
+ul.navigation,a.navigation{
+  margin:20px 0 0 20px;
+  background-color:#4CAF50;
+}
+
+li.navigation{
+  background-color:#4CAF50;
+  display: inline-block;
+
+}
+
+
