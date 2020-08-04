@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div id="show"></div>
+
+<script>
+    //展示网页源代码
+    let myWindow=document.getElementsByTagName("html");
+    console.log(myWindow[0])
+    let show=document.getElementById("show");
+    show.innerText=myWindow[0].innerHTML
+</script>
+</body>
+</html>

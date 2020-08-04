@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>生命周期</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/vue/2.6.11/vue.js"></script>
+</head>
+<body>
+<div class="my">
+    <p>生命周期
+    <br><br>
+        创建 挂载 更新 销毁 每个阶段有前后分别
+        作为Vue实例的选项可选，在不同阶段有不同的特性，使用回调实现相应功能
+    </p>
+</div>
+
+<div class="box">
+    {{name}}
+    <input v-model="name">
+    <button @click="show">show methods</button>
+</div>
+<script>
+    let vm=new Vue({
+        el:".box",
+        data:{
+            name:"tom"
+        },
+        methods:{
+            show(){
+                alert("methods:show");
+            }
+        },
+        beforeCreate:function (){
+            console.log("beforeCreate")
+        },
+        created: function () {
+
+            console.log("created")
+        },
+        beforeMount:function (){
+
+            console.log("beforeMount")
+        },
+        mounted:function (){
+
+            console.log("mounted")
+        },
+        beforeUpdate:function (){
+
+            console.log("beforeUpdate--")
+        },
+        updated:function (){
+            console.log("updated++")
+        },
+        beforeDestroy:function (){
+            console.log("beforeDestroy")
+        },
+        destroyed:function (){
+            console.log("destroyed")
+        }
+
+
+    })
+</script>
+</body>
+</html>

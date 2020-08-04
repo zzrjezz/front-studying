@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>生命周期与Ajax</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/vue/2.6.11/vue.js"></script>
+</head>
+<body>
+<div class="box">
+    {{name}}
+<input v-model="name">
+    <button @click="changeName">换Ajax值</button>
+</div>
+<script>
+    let XHR=new XMLHttpRequest();
+
+    XHR.onreadystatechange=function()
+    {
+        if (XHR.readyState==4 && XHR.status==200)
+        {
+            // document.getElementById("myDiv").innerHTML=xmlhttp.responseText;
+            console.log(XHR.responseText);
+        }
+    }
+    XHR.open("GET","http://localhost:63342/gitDemo/data/data.txt",true);
+    XHR.send();
+
+    let vm=new Vue({
+        el:".box",
+        data:{
+            name:"tom"
+        },
+        methods:{
+   changeName(){
+       this.name=XHR.responseText;
+   }
+        },
+        beforeCreate:function (){
+            console.log("beforeCreate")
+        },
+        created: function () {
+
+            console.log("created")
+        },
+        beforeMount:function (){
+
+            console.log("beforeMount")
+        },
+        mounted:function (){
+
+            console.log("mounted")
+        },
+        beforeUpdate:function (){
+
+            console.log("beforeUpdate--")
+        },
+        updated:function (){
+            console.log("updated++")
+        },
+        beforeDestroy:function (){
+            console.log("beforeDestroy")
+        },
+        destroyed:function (){
+            console.log("destroyed")
+        }
+
+
+    })
+</script>
+</body>
+</html>

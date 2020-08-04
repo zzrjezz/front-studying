@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vue组件相关知识</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/vue/2.6.11/vue.js"></script>
+</head>
+<body>
+<div class="my">
+    <p>vue模板
+        <br><br>
+    vue.componet("name",{
+        模板
+        数据
+        方法等
+        })
+
+        <br><br>
+        因为组件是可复用的 Vue 实例，所以它们与 new Vue 接收相同的选项，例如 data、computed、watch、methods 以及生命周期钩子等。仅有的例外是像 el 这样根实例特有的选项。
+
+        <br><br>
+        组件之间接受值 props 在组件调用时赋值
+
+        <br><br>
+        全局注册组件 父组件向子组件传值
+    </p>
+</div>
+
+<div class="box">
+<button-counter>无插槽不显示值</button-counter>
+
+    <br><br>
+v-for props: <test  v-for="post in posts"
+       v-bind:key="post.id"
+       v-bind:title="post.title">无插槽不显示值</test>
+
+    <br><br>
+text props: <test title="this title"></test>
+
+
+</div>
+<script>
+    //组件定义
+    Vue.component('button-counter', {
+        data: function () {
+            return {
+                count: 0
+            }
+        },
+        template: '<button v-on:click="count++">You clicked me {{ count }} times.</button>'
+    })
+
+    Vue.component('test',{
+        template:`<div>template <br> count:{{count}}  title:{{title}}<button @click="show">click</button> <br> </div>`,
+        methods:{
+            show(){
+                // alert("test")
+                console.log("this test method")
+                this.count++;
+
+            }
+        },
+        data(){
+            return {
+                count:0
+            }
+        },
+        props:["title"]
+    })
+
+
+
+
+    let vm=new Vue({
+        el:".box",
+        data:{
+            name:"tom",
+            posts: [
+                { id: 1, title: 'My journey with Vue' },
+                { id: 2, title: 'Blogging with Vue' },
+                { id: 3, title: 'Why Vue is so fun' }
+            ]
+        },
+        methods:{
+            show(){
+                alert("vue methods");
+            }
+        },
+
+
+
+    })
+</script>
+</body>
+</html>
