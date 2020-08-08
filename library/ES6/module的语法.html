@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>模板</title>
+    <style>
+        p{
+            line-height: 2em;
+        }
+    </style>
+</head>
+<body>
+
+<p>
+    // 报错
+    export 1;
+
+// 报错
+var m = 1;
+export m;
+上面两种写法都会报错，因为没有提供对外的接口。第一种写法直接输出 1，第二种写法通过变量m，还是直接输出 1。1只是一个值，不是接口。正确的写法是下面这样。
+
+</p>
+
+<script>
+
+    
+    // 写法一
+    export var m = 1;
+    
+    // 写法二
+    var m = 1;
+    export {m};
+    
+    // 写法三
+    var n = 1;
+    export {n as m};
+</script>
+
+</body>
+</html>
+
+
+

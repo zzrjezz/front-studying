@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>模板</title>
+    <style>
+        p{
+            line-height: 2em;
+        }
+    </style>
+</head>
+<body>
+
+<p>
+    概述
+
+    严格模式
+
+    export 命令
+
+    import 命令 （注意，import命令具有提升效果，会提升到整个模块的头部，首先执行。）
+
+    模块的整体加载
+    (import * as circle from './circle';
+    console.log('圆面积：' + circle.area(4));
+    console.log('圆周长：' + circle.circumference(14));)
+
+    export default 命令
+
+    export 与 import 的复合写法
+
+    模块的继承
+
+    跨模块常量
+
+    import()
+
+
+</p>
+
+<script type="module" src="http://localhost:3000/moduel" >
+ import arr from 'http://localhost:3000/moduel';
+ console.log(arr);
+
+//  console.log("hrllo");
+</script>
+
+</body>
+</html>

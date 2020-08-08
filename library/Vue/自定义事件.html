@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vue总结模板</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/vue/2.6.11/vue.js"></script>
+</head>
+<body>
+<div class="my">
+    <p>个人总结：</p>
+</div>
+
+<div class="box">
+
+<base-checkbox v-model="lovingVue"></base-checkbox>
+
+</div>
+<script>
+
+Vue.component('base-checkbox', {
+  model: {
+    prop: 'checked',
+    event: 'change'
+  },
+  props: {
+    checked: Boolean
+  },
+  template: `
+    <input
+      type="checkbox"
+      v-bind:checked="checked"
+      v-on:change="$emit('change', $event.target.checked)"
+    >
+  `
+})
+
+    let vm=new Vue({
+        el:".box",
+        data:{
+            name:"tom",
+            lovingVue:true
+        },
+        methods:{
+            show(){
+                alert("vue methods");
+            }
+        },
+
+
+
+    })
+</script>
+</body>
+</html>

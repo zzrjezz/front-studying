@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>模板</title>
+    <style>
+        p{
+            line-height: 2em;
+        }
+    </style>
+</head>
+<body>
+
+<p>
+    1、join()
+
+    join，就是把数组转换成字符串，然后给他规定个连接字符，默认的是逗号(  ，)
+    
+    　　书写格式：join(" ")，括号里面写字符串  ("要加引号"),
+
+    
+</p>
+
+<script>
+var arr = [1,2,3];
+console.log(arr.join()); 　　　　// 1,2,3
+console.log(arr.join("-")); 　　// 1-2-3
+console.log(arr); 　　　　　　　　// [1, 2, 3]（原数组不变）
+
+
+var arr = ["Lily","lucy","Tom"];
+var count = arr.push("Jack","Sean");
+console.log(count); 　　　　　　　　　　// 5
+console.log(arr); 　　　　　　　　　　　// ["Lily", "lucy", "Tom", "Jack", "Sean"]
+var item = arr.pop();
+console.log(item); 　　　　　　　　　　 // Sean
+console.log(arr); 　　　　　　　　　　  // ["Lily", "lucy", "Tom", "Jack"]
+</script>
+
+</body>
+</html>

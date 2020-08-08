@@ -1,0 +1,63 @@
+<head>
+    <meta charset="utf-8">
+    <script src="https://cdn.bootcdn.net/ajax/libs/vue/2.6.11/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+       <Father></Father>
+    </div>
+ 
+    <template id="father">
+       <div>
+          <h3>这里是父组件</h3>
+          <p>儿子给我{{ money}} </p>
+          <Son @hongbao="givemoney"></Son>
+       </div>
+ 
+    </template>
+ 
+    <template id="son">
+       <div>
+          <h3>这里是子组件</h3>
+          <button @click="give">给父亲红包</button>
+       </div>
+    </template>
+ </body>
+ 
+ <script>
+    Vue.component('Father',{
+       template:'#father',
+       data(){
+          return {
+             money:0,
+          }
+       },
+       methods:{
+           //自定义事件的定义(发布)
+          givemoney(val){
+             this.money=val;
+          }
+       }
+ 
+    });
+ 
+    Vue.component('Son',{
+       template:'#son',
+       data(){
+         return {
+            money:3000,
+         }
+       },
+       methods:{
+          //自定义事件的触发 （ 订阅 ）
+          give(){
+             console.log(this.money)
+             this.$emit('hongbao',this.money)
+          }
+       }
+    })
+ 
+    new Vue({
+ 
+    }).$mount('#app')
+</script>

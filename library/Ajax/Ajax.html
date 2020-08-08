@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ajax</title>
+</head>
+<body>
+<p>
+    Ajax状态与异步时间问题
+    <br><br>
+    readystate会变化4次 调用onreadystatechange方法，在不同时间点实现相应功能
+    <br><br>
+
+    在Ajax发送后，同步执行调用回应内容，也不会得到(需在对应异步时间点调用方法)
+</p>
+<div id="show"></div>
+<script>
+    let XHR=new XMLHttpRequest();
+    let URL="http://localhost:3000/data";
+
+
+    // XHR.onreadystatechange=function(){
+    //     console.log(XHR.readyState+' ready-change')
+    // }  方法被重写了
+
+    XHR.onreadystatechange=function()
+    {
+        console.log(`state:${XHR.readyState}`)
+
+        if (XHR.readyState==0 && XHR.status==200)
+        {
+            console.log(XHR.readyState);
+        }
+
+        if (XHR.readyState==1 && XHR.status==200)
+        {
+            console.log(XHR.readyState);
+        }
+
+        if (XHR.readyState==2 && XHR.status==200)
+        {
+            console.log(XHR.readyState);
+        }
+
+        if (XHR.readyState==3 && XHR.status==200)
+        {
+            console.log(XHR.readyState);
+        }
+
+        if (XHR.readyState==4 && XHR.status==200)
+        {
+
+            console.log(XHR.readyState);
+            console.log(XHR.responseText)
+            let obj2=JSON.parse(XHR.responseText)
+            console.log(obj2)
+
+        }
+
+
+    }
+
+    XHR.open("GET",URL,true);
+    XHR.send();
+
+    console.log(`**接受的内容：${XHR.responseText}--`)
+
+    // let obj=JSON.parse(XHR.responseText)
+    // console.log(obj,typeof obj)  错误的时机调用后台数据
+
+
+    //展示网页源代码
+    
+    let myWindow=document.getElementsByTagName("html");
+    console.log(myWindow[0])
+    let show=document.getElementById("show");
+    show.innerText=myWindow[0].innerHTML;
+    // document.innerText="hello";
+
+</script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>插槽</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/vue/2.6.11/vue.js"></script>
+</head>
+<body>
+<div class="my">
+    <p>个人总结：</p>
+</div>
+
+<div class="box">
+
+
+<my-slot title="i am title"> 
+    <!-- {{title}} -->
+    {{name}}
+    <h1>Hello slot</h1></my-slot>
+
+<my-no-slot>hello no slot</my-no-slot>
+</div>
+<script>
+Vue.component('my-slot',{
+template:`<div>
+<slot></slot>
+</div>`,
+data(){
+    return {
+name:'slot-tom'
+    }
+},
+props:["title"]
+})
+
+Vue.component('my-no-slot',{
+template:`<div>
+</div>`,
+data(){
+    return {
+
+    }
+}
+})
+
+    let vm=new Vue({
+        el:".box",
+        data:{
+            name:"tom"
+        },
+        methods:{
+            show(){
+                alert("vue methods");
+            }
+        },
+
+
+
+    })
+</script>
+</body>
+</html>

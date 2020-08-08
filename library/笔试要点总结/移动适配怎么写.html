@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>模板</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+    <style>
+        p{
+            line-height: 2em;
+        }
+
+        @media only screen and (max-width: 600px) {
+    body {
+      background-color: lightgreen;
+    }
+  }
+
+        .menu {
+            max-width: 100%;
+    /* width:100px; */
+    height:100px;
+    float:left;
+    margin:30px 1%;
+    background-color: aqua;
+}
+@media only screen and (max-with:800px){
+    .menu {
+        width:200px;
+        height: 200px;
+        margin:30px 2%;
+        background-color: bisque;
+    }
+}
+@media only screen and (max-with: 500px){
+    .menu {
+        width:300px;
+       
+        width: 200px;
+        height: 200px;
+        background-color: blue;
+    }
+}
+
+@media screen and (max-width:1000px) {
+    
+}
+
+.mimg{
+    max-width: 100%;
+}
+    </style>
+    
+</head>
+<body>
+
+<p>
+移动页面适配  max-width 向下适配 min-width 向上适配
+</p>
+
+<div class="menu">.menu</div>
+
+<img src="../../images/cat.jpg" class="mimg">
+
+<script></script>
+
+</body>
+</html>

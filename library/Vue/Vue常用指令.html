@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue常用指令</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/vue/2.6.11/vue.js"></script>
+</head>
+<body>
+<div class="my">
+    <p>个人总结：使用v-for一定会重复n次(n>=1)标签  for(数组，对象)
+    <br><br>
+Vue常用指令：v-if v-show (显示)
+        v-bind(:) v-on(@)  v-model(双向绑定) 绑定数据
+        v-for 遍历
+        <br><br>
+    </p>
+
+    <a href="../Js/Array.html">Array</a>
+</div>
+
+<div class="box">
+
+<h1  v-for="item in items">{{item}}</h1>
+
+    no for: <h1 v-for="item in items">heelo ** {{item.name}}</h1>  <!--使用v-for一定会重复n次标签-->
+
+   for obj: <ul id="v-for-object" class="demo">
+        <li v-for="value in object">
+            {{ value }}
+        </li>
+    </ul>
+
+    for obj(value,property):<div v-for="(value, name) in object">
+    {{ name }}: {{ value }}
+</div>
+
+    <br><br>
+
+    for obj(value,property,index):<div v-for="(value, name, index) in object">
+        {{ index }}. {{ name }}: {{ value }}
+    </div>
+
+</div>
+<script>
+
+    let vm=new Vue({
+        el:".box",
+        data:{
+            name:"tom",
+            items:[
+                {id:1,name:"tom"},
+                {id:2,name:"jack"},
+                {id:3,name:"davi"},
+
+            ],
+            object: {
+                title: 'How to do lists in Vue',
+                author: 'Jane Doe',
+                publishedAt: '2016-04-10'
+            }
+        },
+        methods:{
+            show(){
+                alert("vue methods");
+            }
+        },
+
+
+
+    })
+</script>
+</body>
+</html>

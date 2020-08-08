@@ -2,18 +2,24 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>自用功能总结</title>
 </head>
 <body>
 
-<div id="show"></div>
-
 <script>
-    //展示网页源代码
+
+
+//创建显示容器，并将html内的代码发布到容器中
+    var div = document.createElement("div");
+    div.classList.add("show");
+    div.id="show";
+    document.body.appendChild(div);
+
     let myWindow=document.getElementsByTagName("html");
     console.log(myWindow[0])
     let show=document.getElementById("show");
     show.innerText=myWindow[0].innerHTML
+
 </script>
 </body>
 </html>
